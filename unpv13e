@@ -3,7 +3,42 @@ I checked and my ssytem had sctp.h
 
 Don't know if this made any difference, but I did it first. Next time start from second step and see if it solves the problem
 https://www.programering.com/a/MDM3AzMwATQ.html
+Here is what I did as described on that web page
+Basic environment:
 
+Operating system Debian
+GCC development environment, MAKE, first of all to have the C compiler, make based tools. If not, can be installed through the following command. This command will install a set of tools, which contains the required a lot of Linux C development tool. 
+sudo apt-get install build-essential
+
+(1)Download unpv.13e.tar.gz from the internet. In the online search a lot. Unpv.12e.tar.gz version of the problem, so to avoid the use of. Download the installation package after decompression can follow his instructions to install README file. Decompression of the command is
+
+tar -xvf unpv.13e.tar.gz
+
+(2)Now you can CD to unpv13e directory. The following two commands can generate the corresponding library function in the unpv13e directory.
+cd unpv13e
+./configure
+cd lib && make
+
+(3)Return to your unpv13e directory, will generate the libunp.a to copy the database file directory. The corresponding shell command.
+cd ..
+sudo cp libunp.a /usr/lib  
+sudo cp libunp.a /usr/lib64
+
+(4)Modify the unp.h and the config.h copy to /usr/iinclude
+gedit lib/unp.h   //The unp.h #include "../config.h" modify#include "config.h"
+
+sudo cp lib/unp.h /usr/include  
+sudo cp config.h /usr/include 
+
+
+(5)Write a small program to test it, in the unpv13e intro directory contains several examples. Can be used to test. And see if you can generate the corresponding executable file.
+
+
+cd ./intro  
+gcc daytimetcpcli.c -o daytimetcpcli -lunp 
+
+
+Following is the change I did in configurations for VisualStudioCode in Linux
 I am using gcc
 After changing Include path to (this seems to solve it) No more problem with unp.h and no more problem with sctp.h
 ${workspaceFolder}/
