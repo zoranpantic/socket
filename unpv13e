@@ -8,4 +8,4 @@ I am using gcc
 After changing Include path to (this seems to solve it) No more problem with unp.h and no more problem with sctp.h
 ${workspaceFolder}/
 ${workspaceFolder}/lib
-All worked like charmy
+All worked like charm
