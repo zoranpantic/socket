@@ -1,0 +1,11 @@
+unpv13e would not link sctp and unp.h was having squibble line in and some strange problem wiht sctp.h not being found. 
+I checked and my ssytem had sctp.h
+
+Don't know if this made any difference, but I did it first. Next time start from second step and see if it solves the problem
+https://www.programering.com/a/MDM3AzMwATQ.html
+
+I am using gcc
+After changing Include path to (this seems to solve it) No more problem with unp.h and no more problem with sctp.h
+${workspaceFolder}/
+${workspaceFolder}/lib
+All worked like charmy
